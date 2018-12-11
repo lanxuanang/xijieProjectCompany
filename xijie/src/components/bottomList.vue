@@ -5,6 +5,11 @@
         <span>{{item.name}}</span>
         <router-link to="managerLevel">Home</router-link>
       </div>
+      <div :class='{listDetailSec:item.listDetailSec}'>
+        <div class="listDetail" v-for="(itemsec,indexsec) in item.list">
+          <span>{{itemsec.name}}</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -15,18 +20,73 @@
     data: function () {
       return {
         dataList: [
-          {name: '帮助中心', rotateDeg: false},
-          {name: '服务支持', rotateDeg: false},
-          {name: '帮助中心', rotateDeg: false},
-          {name: '关于我们', rotateDeg: false},
-          {name: '关注我们', rotateDeg: false},
-          {name: '特色服务', rotateDeg: false}
+          {
+            name: '帮助中心',
+            rotateDeg: false,
+            listDetailSec: true,
+            list: [
+              {name: 'apple'},
+              {name: 'mac'},
+              {name: 'iphone'}
+            ]
+          },
+          {
+            name: '服务支持',
+            rotateDeg: false,
+            listDetailSec: false,
+            list: [
+              {name: 'apple'},
+              {name: 'mac'},
+              {name: 'iphone'}
+            ]
+          },
+          {
+            name: '帮助中心',
+            rotateDeg: false,
+            listDetailSec: false,
+            list: [
+              {name: 'apple'},
+              {name: 'mac'},
+              {name: 'iphone'}
+            ]
+          },
+          {
+            name: '关于我们',
+            rotateDeg: false,
+            listDetailSec: false,
+            list: [
+              {name: 'apple'},
+              {name: 'mac'},
+              {name: 'iphone'}
+            ]
+          },
+          {
+            name: '关注我们',
+            rotateDeg: false,
+            listDetailSec: false,
+            list: [
+              {name: 'apple'},
+              {name: 'mac'},
+              {name: 'iphone'}
+            ]
+          },
+          {
+            name: '特色服务',
+            rotateDeg: false,
+            listDetailSec: false,
+            list: [
+              {name: 'apple'},
+              {name: 'mac'},
+              {name: 'iphone'}
+            ]
+          }
         ]
       }
     },
     methods: {
       showRotateDeg: function (index) {
         this.dataList[index].rotateDeg = !this.dataList[index].rotateDeg
+        this.dataList[index].listDetailSec = !this.dataList[index].listDetailSec
       }
     },
     beforeCreate: function () {
@@ -108,5 +168,22 @@
     -webkit-transform: rotateZ(45deg);
     -ms-transform: rotateZ(45deg);
     -o-transform: rotateZ(45deg);
+  }
+
+  .listDetail {
+    padding: 7px 10px;
+  }
+  .listDetailSec {
+    padding: 5px 16px;
+    visibility: hidden;
+    height: 0px;
+    transition: all 286ms;
+    -moz-transition: all 286ms; /* Firefox 4 */
+    -webkit-transition: all 286ms; /* Safari 和 Chrome */
+    -o-transition: all 286ms;
+  }
+  .listDetailThird {
+    visibility: visible;
+    height: 30px;
   }
 </style>
