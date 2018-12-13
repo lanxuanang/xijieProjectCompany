@@ -1,10 +1,7 @@
 <template>
-  <div class="productDetail">
-    <h1>44444</h1>
+  <div>
     <div>
-        <span>
-
-        </span>
+      <h1>44444</h1>
     </div>
   </div>
 </template>
@@ -13,10 +10,7 @@
   export default {
     name: "productDetail",
     data: function () {
-      return {
-        productTitle: '',
-        productDetail: ''
-      }
+      return {}
     },
     beforeCreate: function () {
       console.log('beforeCreate' + '-productDetail')
@@ -32,14 +26,13 @@
       // this.productTitle = this.$route.query.name
     },
     beforeRouteEnter: function (to, from, next) {
-      console.log(to)
-      console.log(from)
-      console.log(next)
+     next()
     }
-
   }
 </script>
 
 <style scoped>
-
+  h1 {
+    font-size: 20px;
+  }
 </style>

@@ -3,13 +3,12 @@
     <router-view name="xijieHeader"/>
     <router-view name="managerLevel"/>
     <router-view name="bottomList"/>
-    <router-view name="product"/>
-    <!--<bottomList></bottomList>-->
+    <router-view name="productTab"/>
+    <router-view name="productDetailA"/>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import bottomList from './components/bottomList'
   export default {
     name: 'App'
   }

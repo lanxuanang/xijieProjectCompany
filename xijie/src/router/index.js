@@ -30,12 +30,14 @@ export default new Router({
       name: 'product',
       components: {
         'xijieHeader': header,
-        'product': product
+        'productTab': product
       },
       children: [{
+        path: 'productDetail',
         name: 'productDetail',
-        path: '/productDetail',
-        component: productDetail
+        components: {
+          'productDetail':productDetail
+        }
       }]
     }
   ]
