@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import header from '@/components/header'
-import managerLevel from '@/components/managerLevel'
-import bottomList from '@/components/bottomList'
+import header from '../components/header'
+import managerLevel from '../components/managerLevel'
+import bottomList from '../components/bottomList'
+import product from '../components/product'
+import productDetail from '../components/productDetail'
 
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
@@ -23,6 +24,20 @@ export default new Router({
         'xijieHeader': header,
         'managerLevel': managerLevel
       }
+    },
+    {
+      path: '/product',
+      name: 'product',
+      components: {
+        'xijieHeader': header,
+        'product': product
+      },
+      children: [{
+        name: 'productDetail',
+        path: '/productDetail',
+        component: productDetail
+      }]
     }
   ]
 })
+
