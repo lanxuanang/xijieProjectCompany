@@ -8,7 +8,6 @@
 
     </div>
     <div>
-12
     </div>
     <div class="companyList" :class='{showCompanyList:showCompanyList}'>
       <div>
