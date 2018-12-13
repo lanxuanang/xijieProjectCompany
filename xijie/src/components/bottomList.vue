@@ -3,11 +3,11 @@
     <div class="" v-for="(item,index) in dataList">
       <div class="bottomListSec" :class='{rotateDeg:item.rotateDeg}' @click="showRotateDeg(index)">
         <span>{{item.name}}</span>
-        <router-link to="managerLevel">Home</router-link>
       </div>
-      <div :class='{listDetailSec:item.listDetailSec}'>
+      <div class="listDetailSec" :class='{listDetailThird:item.listDetailThird}'>
         <div class="listDetail" v-for="(itemsec,indexsec) in item.list">
           <span>{{itemsec.name}}</span>
+          <router-link :to='{name:"product"}' >rtrtr</router-link>
         </div>
       </div>
     </div>
@@ -23,7 +23,8 @@
           {
             name: '帮助中心',
             rotateDeg: false,
-            listDetailSec: true,
+            listDetailThird: false,
+            to:'product',
             list: [
               {name: 'apple'},
               {name: 'mac'},
@@ -33,7 +34,7 @@
           {
             name: '服务支持',
             rotateDeg: false,
-            listDetailSec: false,
+            listDetailThird: false,
             list: [
               {name: 'apple'},
               {name: 'mac'},
@@ -43,7 +44,7 @@
           {
             name: '帮助中心',
             rotateDeg: false,
-            listDetailSec: false,
+            listDetailThird: false,
             list: [
               {name: 'apple'},
               {name: 'mac'},
@@ -53,7 +54,7 @@
           {
             name: '关于我们',
             rotateDeg: false,
-            listDetailSec: false,
+            listDetailThird: false,
             list: [
               {name: 'apple'},
               {name: 'mac'},
@@ -63,7 +64,7 @@
           {
             name: '关注我们',
             rotateDeg: false,
-            listDetailSec: false,
+            listDetailThird: false,
             list: [
               {name: 'apple'},
               {name: 'mac'},
@@ -73,7 +74,7 @@
           {
             name: '特色服务',
             rotateDeg: false,
-            listDetailSec: false,
+            listDetailThird: false,
             list: [
               {name: 'apple'},
               {name: 'mac'},
@@ -86,7 +87,11 @@
     methods: {
       showRotateDeg: function (index) {
         this.dataList[index].rotateDeg = !this.dataList[index].rotateDeg
-        this.dataList[index].listDetailSec = !this.dataList[index].listDetailSec
+        this.dataList[index].listDetailThird = !this.dataList[index].listDetailThird
+      },
+      goOther:(param) => {
+        alert(param)
+        this.$router.push('/'+param)
       }
     },
     beforeCreate: function () {
@@ -102,7 +107,6 @@
       console.log('mounted' + '-bottomList')
     },
     beforeUpdate: function () {
-      debugger
       console.log('beforeUpdate' + '-bottomList')
     },
     updated: function () {
@@ -176,6 +180,7 @@
   .listDetailSec {
     padding: 5px 16px;
     visibility: hidden;
+    opacity: 0;
     height: 0px;
     transition: all 286ms;
     -moz-transition: all 286ms; /* Firefox 4 */
@@ -183,7 +188,8 @@
     -o-transition: all 286ms;
   }
   .listDetailThird {
+    height: 80px;
     visibility: visible;
-    height: 30px;
+    opacity: 1;
   }
 </style>

@@ -12,18 +12,8 @@
     </div>
     <div class="companyList" :class='{showCompanyList:showCompanyList}'>
       <div>
-        <div class="companyTabLine">
-          <span>公司简介</span>
-        </div>
-      </div>
-      <div>
-        <div class="companyTabLine">
-          <span>公司产品</span>
-        </div>
-      </div>
-      <div>
-        <div class="companyTabLine">
-          <span>公司发展</span>
+        <div class="companyTabLine" v-for="item in designStyles" @click="showDesignDetail(item.id)">
+          <span>{{item.name}}</span>
         </div>
       </div>
     </div>
@@ -36,13 +26,27 @@
     data() {
       return {
         msg: 'Welcome to Your Vue.js App',
-        showCompanyList: false
+        showCompanyList: false,
+        designStyles:[
+          {name:'美式乡村',id:'1'},
+          {name:'古典欧式',id:'2'},
+          {name:'地中海式',id:'3'},
+          {name:'东南亚',id:'4'},
+          {name:'日式',id:'5'},
+          {name:'新古典',id:'6'},
+          {name:'现代简约',id:'7'},
+        ]
       }
     },
     methods: {
       showCompany: function () {
         this.showCompanyList = !this.showCompanyList
+      },
+      showDesignDetail:function(designId){
+        this.showCompanyList=false
+        this.$router.push({path:'product',query:{id:designId}})
       }
+
     },
     beforeCreate: function () {
       console.log('beforeCreate' + '-header')
@@ -113,7 +117,9 @@
 
   .showCompanyList {
     visibility: visible;
-    height: 145px;
+    height: 100%;
+    position: fixed;
+    z-index: 9999;
   }
 
   .companyList > div {

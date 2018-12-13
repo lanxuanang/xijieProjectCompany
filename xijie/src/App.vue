@@ -3,6 +3,7 @@
     <router-view name="xijieHeader"/>
     <router-view name="managerLevel"/>
     <router-view name="bottomList"/>
+    <router-view name="product"/>
     <!--<bottomList></bottomList>-->
   </div>
 </template>

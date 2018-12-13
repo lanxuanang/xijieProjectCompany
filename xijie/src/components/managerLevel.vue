@@ -2,7 +2,7 @@
   <div class="managerLevel">
     <div><span>管理层简介</span></div>
     <div v-for="(item,index) in managerLevelList">
-      <img :src='item.photo'>
+      <span>{{item.job}}:{{item.name}}</span>
     </div>
   </div>
 </template>
@@ -12,13 +12,7 @@
     name: "managerLevel",
     data: function () {
       return {
-        managerLevelList: [
-          {
-            photo: '../../assets/logo.png',
-            name: '距离远',
-            job: '总经理'
-          }
-        ]
+        managerLevelList: []
       }
     },
     beforeCreate: function () {
@@ -31,14 +25,20 @@
       console.log('beforeMount' + '-managerLevel')
     },
     mounted: function () {
-      debugger
-      console.log('mounted' + '-managerLevel')
+      this.$http.get('http://localhost:4000/getManagerLevel').then((data) => {
+        console.log(111111111)
+        console.log(data)
+        this.managerLevelList = data.data.data
+      })
     },
     beforeUpdate: function () {
       console.log('beforeUpdate' + '-managerLevel')
     },
     updated: function () {
       console.log('updated' + '-managerLevel')
+    },
+    methods:{
+
     }
 
   }
