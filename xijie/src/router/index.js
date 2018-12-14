@@ -5,6 +5,7 @@ import managerLevel from '../components/managerLevel'
 import bottomList from '../components/bottomList'
 import product from '../components/product'
 import productDetail from '../components/productDetail'
+import productBar from '../components/productBar'
 
 Vue.use(Router)
 export default new Router({
@@ -30,7 +31,8 @@ export default new Router({
       name: 'product',
       components: {
         'xijieHeader': header,
-        'productTab': product
+        // 'productTab': product,
+        'productBar':productBar
       },
       children: [{
         path: 'productDetail',

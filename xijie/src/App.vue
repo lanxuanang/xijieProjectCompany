@@ -5,6 +5,7 @@
     <router-view name="bottomList"/>
     <router-view name="productTab"/>
     <router-view name="productDetailA"/>
+    <router-view name="productBar"/>
   </div>
 </template>
 
