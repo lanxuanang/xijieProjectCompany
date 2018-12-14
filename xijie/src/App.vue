@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <router-view name="xijieHeader"/>
+    <router-view name="homeIntroduce"/>
     <router-view name="managerLevel"/>
-    <router-view name="bottomList"/>
     <router-view name="productTab"/>
     <router-view name="productDetailA"/>
+    <router-view name="productBar"/>
+    <router-view name="bottomList"/>
   </div>
 </template>
 

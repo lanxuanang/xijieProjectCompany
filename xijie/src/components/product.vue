@@ -6,6 +6,7 @@
     <div @click="iphoneTab()">
       公司业绩
     </div>
+    <img src="../assets/logo.png">
     <router-view name="productDetail"></router-view>
   </div>
 </template>
