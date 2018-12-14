@@ -33,8 +33,10 @@ export default new Router({
       components: {
         'xijieHeader': header,
         // 'productTab': product,
-        'productBar':productBar
+        'productBar':productBar,
+        'bottomList': bottomList
       },
+      redirect:'product/productDetail',
       children: [{
         path: 'productDetail',
         name: 'productDetail',

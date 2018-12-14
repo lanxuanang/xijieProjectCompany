@@ -4,7 +4,7 @@
       <img :src="'../../static/img/home/'+item.url+'.png'">
       <div class="home" :class="item.mineClass">
         <div>{{item.title1}}</div>
-        <div @click="goProduct()">{{item.title2}}</div>
+        <div @click="goProduct(item.id)">{{item.title2}}</div>
       </div>
     </div>
     <!--<div class="">-->
@@ -64,7 +64,7 @@
     },
     methods: {
       goProduct: function (id) {
-         alert(123)
+        this.$router.push({path:'product',query:{id:id}})
       }
     }
   }

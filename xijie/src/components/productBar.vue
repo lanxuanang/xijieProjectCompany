@@ -46,10 +46,10 @@
   .productBar {
     display: flex;
     justify-content: center;
-    background: rgba(242, 242, 242, 0.7);
     position: fixed;
     top:48px;
     width: 100%;
+    background-color: #f9f9f9;
   }
 
   .productBar > div {

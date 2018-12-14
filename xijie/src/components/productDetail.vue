@@ -59,6 +59,9 @@
 </script>
 
 <style scoped>
+  .designClass{
+    padding-top: 140px;
+  }
   .designClass img{
     width: 100%;
   }
