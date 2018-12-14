@@ -6,7 +6,7 @@
     <div @click="iphoneTab()">
       公司业绩
     </div>
-    <router-view/>
+    <router-view name="productDetail"></router-view>
   </div>
 </template>
 
@@ -20,10 +20,10 @@
     },
     methods: {
       macTab: function () {
-        this.$router.push('productDetail')
+        this.$router.replace({path: 'product/productDetail', query: {name: 'deetail'}})
       },
       iphoneTab: function () {
-        this.$router.push({path: 'productDetail', query: {name: 'money'}})
+        this.$router.replace({path: 'product/productDetail', query: {name: 'money'}})
       }
     },
     watch: {
