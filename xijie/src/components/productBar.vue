@@ -1,42 +1,39 @@
 <template>
-  <div class="productBar">
-    <div v-for='item in styleListIcons'>
-      <img :src='item.url'>
-      <div class="discript">
-        <span>{{item.discript}}</span>
+  <div>
+    <div class="productBar">
+      <div v-for='item in styleListIcons'>
+        <img :src='"../../static/img/designClass/"+item.url+".png"'>
+        <div class="discript">
+          <span>{{item.discript}}</span>
+        </div>
       </div>
     </div>
+    <router-view name="productDetail"></router-view>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import china from '../assets/china.png'
-  import japan from '../assets/japan.png'
-  import usa from '../assets/usa.png'
-  import europe from '../assets/europe.png'
-
-  console.log(china)
   export default {
     name: "productBar",
     data: function () {
       return {
         styleListIcons: [
           {
-            url: china,
+            url: 'keting',
             id: '1',
-            discript:'新古典'
+            discript: '客厅'
           }, {
-            url: japan,
+            url: 'chufang',
             id: '2',
-            discript:'日式'
+            discript: '厨房'
           }, {
-            url: usa,
+            url: 'woshi',
             id: '3',
-            discript:'美式乡村'
+            discript: '卧室'
           }, {
-            url: europe,
+            url: 'yangtai4',
             id: '4',
-            discript:'地中海'
+            discript: '阳台'
           }
         ]
       }
@@ -46,20 +43,28 @@
 </script>
 
 <style scoped>
-  .productBar{
-    display:flex;
-    justify-content:center;
+  .productBar {
+    display: flex;
+    justify-content: center;
+    background: rgba(242, 242, 242, 0.7);
+    position: fixed;
+    top:48px;
+    width: 100%;
   }
+
   .productBar > div {
     padding: 10px;
     width: 50px;
-    text-align:center;
+    text-align: center;
+    padding: 10px 20px;
   }
-  .productBar img{
-    width:100%;
+
+  .productBar img {
+    width: 100%;
   }
-  .discript{
-    text-align:center;
-    font-size:12px;
+
+  .discript {
+    text-align: center;
+    font-size: 12px;
   }
 </style>

@@ -1,13 +1,13 @@
 <template>
-  <div class="xijieHeader">
-    <div class="headerFirstLi">
-      <span class="headerFirstLiTop" @click='showCompany'></span>
-      <span class="headerFirstLiBottom"></span>
-    </div>
-    <div>
-
-    </div>
-    <div>
+  <div class="xijieHeaderContain">
+    <div class="xijieHeader">
+      <div class="headerFirstLi">
+        <span class="headerFirstLiTop" @click='showCompany'></span>
+        <span class="headerFirstLiBottom"></span>
+      </div>
+      <div>
+        <img src="../../static/img/pencil.png">
+      </div>
     </div>
     <div class="companyList" :class='{showCompanyList:showCompanyList}'>
       <div>
@@ -26,14 +26,14 @@
       return {
         msg: 'Welcome to Your Vue.js App',
         showCompanyList: false,
-        designStyles:[
-          {name:'美式乡村',id:'1'},
-          {name:'古典欧式',id:'2'},
-          {name:'地中海式',id:'3'},
-          {name:'东南亚',id:'4'},
-          {name:'日式',id:'5'},
-          {name:'新古典',id:'6'},
-          {name:'现代简约',id:'7'},
+        designStyles: [
+          {name: '美式乡村', id: '1'},
+          {name: '古典欧式', id: '2'},
+          {name: '地中海式', id: '3'},
+          {name: '东南亚', id: '4'},
+          {name: '日式', id: '5'},
+          {name: '新古典', id: '6'},
+          {name: '现代简约', id: '7'},
         ]
       }
     },
@@ -41,9 +41,9 @@
       showCompany: function () {
         this.showCompanyList = !this.showCompanyList
       },
-      showDesignDetail:function(designId){
-        this.showCompanyList=false
-        this.$router.push({path:'product',query:{id:designId}})
+      showDesignDetail: function (designId) {
+        this.showCompanyList = false
+        this.$router.push({path: 'product', query: {id: designId}})
       }
 
     },
@@ -70,10 +70,21 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .xijieHeaderContain{
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+  }
   .xijieHeader {
     width: 100%;
     height: 48px;
     background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .xijieHeader img{
+    display: block;
   }
 
   .headerFirstLi {

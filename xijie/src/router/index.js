@@ -6,7 +6,7 @@ import bottomList from '../components/bottomList'
 import product from '../components/product'
 import productDetail from '../components/productDetail'
 import productBar from '../components/productBar'
-
+import homeIntroduce from '../components/homeIntroduce'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -15,6 +15,7 @@ export default new Router({
       name: 'header',
       components: {
         'xijieHeader': header,
+        'homeIntroduce': homeIntroduce,
         'bottomList': bottomList
       }
     },
