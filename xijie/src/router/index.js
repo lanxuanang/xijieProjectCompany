@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import header from '../components/header'
+// import header from '../components/header'
+import header from '../modules/home'
 import managerLevel from '../components/managerLevel'
 import bottomList from '../components/bottomList'
 import product from '../components/product'

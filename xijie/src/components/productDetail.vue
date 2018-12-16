@@ -12,7 +12,7 @@
       </div>
     </div>
     <div v-for="item in usaDesign">
-      <img :src="item.url">
+      <img :src="'../../static/img/productDetail/usa/'+item.url+'.png'">
       <div>
         <div>
           <span></span>
@@ -31,10 +31,10 @@
     data: function () {
       return {
         usaDesign: [
-          {url: 'https://pic1.to8to.com/smallcase/1404/04/20140404_77b95964b5365f2dffderlew0779yn6v_284.jpg', id: 1},
-          {url: 'https://pic1.to8to.com/smallcase/1407/13/20140713_fe91dcf4c16e566cbdf92wcohi1felya_284.jpg', id: 2},
-          {url: 'https://pic.to8to.com/smallcase/1404/04/20140404_0567331e847c4524a1ac9sdc40kpdzmz_284.jpg', id: 3},
-          {url: 'https://pic.to8to.com/smallcase/1312/27/20131227_0b1787ae68303af64e0eqrl1f7fs3y03_284.jpg', id: 4}
+          {url: 'keting', id: 1},
+          {url: 'chufang', id: 2},
+          {url: 'woshi', id: 3},
+          {url: 'yangtai', id: 4}
         ]
       }
     },

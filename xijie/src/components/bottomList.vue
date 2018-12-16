@@ -7,7 +7,7 @@
       <div class="listDetailSec" :class='{listDetailThird:item.listDetailThird}'>
         <div class="listDetail" v-for="(itemsec,indexsec) in item.list">
           <span>{{itemsec.name}}</span>
-          <router-link :to='{name:"product"}' >rtrtr</router-link>
+          <!--<router-link :to='{name:"product"}' >rtrtr</router-link>-->
         </div>
       </div>
     </div>
