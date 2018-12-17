@@ -11,7 +11,7 @@
     </div>
     <div class="companyList" :class='{showCompanyList:showCompanyList}'>
       <div>
-        <div class="companyTabLine" v-for="item in designStyles" @click="showDesignDetail(item.id)">
+        <div class="companyTabLine" v-for="item in designStylesSec" @click="showDesignDetail(item.id)">
           <span>{{item.name}}</span>
         </div>
       </div>
@@ -20,21 +20,23 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import {mapState, mapGetters} from 'vuex'
+
   export default {
     name: 'xijieHeader',
     data() {
       return {
         msg: 'Welcome to Your Vue.js App',
-        showCompanyList: false,
-        designStyles: [
-          {name: '美式乡村', id: '1'},
-          {name: '古典欧式', id: '2'},
-          {name: '地中海式', id: '3'},
-          {name: '东南亚', id: '4'},
-          {name: '日式', id: '5'},
-          {name: '新古典', id: '6'},
-          {name: '现代简约', id: '7'},
-        ]
+
+        // designStyles: [
+        //   {name: '美式乡村', id: '1'},
+        //   {name: '古典欧式', id: '2'},
+        //   {name: '地中海式', id: '3'},
+        //   {name: '东南亚', id: '4'},
+        //   {name: '日式', id: '5'},
+        //   {name: '新古典', id: '6'},
+        //   {name: '现代简约', id: '7'},
+        // ]
       }
     },
     methods: {
@@ -47,21 +49,50 @@
       }
 
     },
+    // computed: {
+    //   designStyles: function () {
+    //     return this.$store.getters.designStylesSec
+    //   }
+    // }
+    // computed: mapState({
+    //   designStyleseee: function (state) {
+    //       return state.designStyles
+    //     }
+    //   }
+    // ),
+    // computed: mapState(['designStylesr']),
+    // computed:{
+    //   ...mapState([
+    //     'designStyles'
+    //   ])
+    // } ,
+    computed:{
+      ...mapGetters(
+        ['designStylesSec']
+      ),
+      ...mapStates(['showCompanyList'])
+    },
+    // mapGetters(['designStylesSec']),
     beforeCreate: function () {
       console.log('beforeCreate' + '-header')
-    },
+    }
+    ,
     created: function () {
       console.log('created' + '-header')
-    },
+    }
+    ,
     beforeMount: function () {
       console.log('beforeMount' + '-header')
-    },
+    }
+    ,
     mounted: function () {
       console.log('mounted' + '-header')
-    },
+    }
+    ,
     beforeUpdate: function () {
       console.log('beforeUpdate' + '-header')
-    },
+    }
+    ,
     updated: function () {
       console.log('updated' + '-header')
     }
@@ -70,11 +101,12 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .xijieHeaderContain{
+  .xijieHeaderContain {
     position: fixed;
     width: 100%;
     z-index: 9999;
   }
+
   .xijieHeader {
     width: 100%;
     height: 48px;
@@ -83,7 +115,8 @@
     justify-content: space-between;
     align-items: center;
   }
-  .xijieHeader img{
+
+  .xijieHeader img {
     display: block;
   }
 
