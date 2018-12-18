@@ -15,6 +15,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import { mapGetters } from 'vuex'
   export default {
     name: "bottomList",
     data: function () {
@@ -83,6 +84,9 @@
           }
         ]
       }
+    },
+    computed:{
+      // ...mapGetters(['bottomdataList'])
     },
     methods: {
       showRotateDeg: function (index) {

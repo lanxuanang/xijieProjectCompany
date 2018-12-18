@@ -1,5 +1,5 @@
 export default {
-  designStylesSec:function(state){
+  designStylesSecdd:function(state){
     return state.designStyles
   }
 }

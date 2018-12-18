@@ -11,7 +11,7 @@
     </div>
     <div class="companyList" :class='{showCompanyList:showCompanyList}'>
       <div>
-        <div class="companyTabLine" v-for="item in designStylesSec" @click="showDesignDetail(item.id)">
+        <div class="companyTabLine" v-for="item in designStylesSecdd" @click="showDesignDetail(item.id)">
           <span>{{item.name}}</span>
         </div>
       </div>
@@ -20,14 +20,14 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import {mapState, mapGetters} from 'vuex'
+  import {mapState, mapGetters,mapMutations,mapActions} from 'vuex'
 
   export default {
     name: 'xijieHeader',
     data() {
       return {
         msg: 'Welcome to Your Vue.js App',
-
+        // showCompanyListw: '',
         // designStyles: [
         //   {name: '美式乡村', id: '1'},
         //   {name: '古典欧式', id: '2'},
@@ -41,19 +41,23 @@
     },
     methods: {
       showCompany: function () {
-        this.showCompanyList = !this.showCompanyList
+        // this.showCompanyList = !this.showCompanyList
+        this.showCompanyListdd()
       },
-      showDesignDetail: function (designId) {
-        this.showCompanyList = false
-        this.$router.push({path: 'product', query: {id: designId}})
-      }
+      showDesignDetail: function () {
+        // this.showCompanyList = false
+        // this.$router.push({path: 'product', query: {id: designId}})
+        this.$store.commit('showCompanyListdd')
+      },
+      ...mapMutations(['showCompanyListdd']),
+      ...mapActions(['getHeaderList'])
 
     },
     // computed: {
-    //   designStyles: function () {
+    //   design: function () {
     //     return this.$store.getters.designStylesSec
     //   }
-    // }
+    // },
     // computed: mapState({
     //   designStyleseee: function (state) {
     //       return state.designStyles
@@ -66,11 +70,24 @@
     //     'designStyles'
     //   ])
     // } ,
-    computed:{
+    computed: {
       ...mapGetters(
-        ['designStylesSec']
+        ['designStylesSecdd']
       ),
-      ...mapStates(['showCompanyList'])
+      ...mapState(
+        ['showCompanyList']
+      )
+      // showCompanyList:function(){
+      //   return this.$store.state.showCompanyList
+      // }
+      // showCompanyList: {
+      //   get: function () {
+      //     return this.$store.showCompanyList
+      //   },
+      //   set: function () {
+      //     return this.$store.showCompanyList
+      //   }
+      // }
     },
     // mapGetters(['designStylesSec']),
     beforeCreate: function () {
@@ -87,6 +104,7 @@
     ,
     mounted: function () {
       console.log('mounted' + '-header')
+      this.getHeaderList()
     }
     ,
     beforeUpdate: function () {

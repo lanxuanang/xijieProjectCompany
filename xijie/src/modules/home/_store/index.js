@@ -1,4 +1,4 @@
-import getters from './getters'
+import { getters } from './getters'
 import mutations from './mutations'
 import actions from './actions'
 import Vue from 'vue'
@@ -6,7 +6,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 const state = {
-  showCompanyList: false,
+  showCompanyList: true,
   designStyles: [
     {name: '美式乡村', id: '1'},
     {name: '古典欧式', id: '2'},
