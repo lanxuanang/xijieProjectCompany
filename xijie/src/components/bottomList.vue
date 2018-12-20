@@ -15,89 +15,104 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import { mapGetters } from 'vuex'
+  import {mapState, mapGetters, mapMutations, mapActions} from 'vuex'
+
   export default {
     name: "bottomList",
     data: function () {
       return {
-        dataList: [
-          {
-            name: '帮助中心',
-            rotateDeg: false,
-            listDetailThird: false,
-            to:'product',
-            list: [
-              {name: 'apple'},
-              {name: 'mac'},
-              {name: 'iphone'}
-            ]
-          },
-          {
-            name: '服务支持',
-            rotateDeg: false,
-            listDetailThird: false,
-            list: [
-              {name: 'apple'},
-              {name: 'mac'},
-              {name: 'iphone'}
-            ]
-          },
-          {
-            name: '帮助中心',
-            rotateDeg: false,
-            listDetailThird: false,
-            list: [
-              {name: 'apple'},
-              {name: 'mac'},
-              {name: 'iphone'}
-            ]
-          },
-          {
-            name: '关于我们',
-            rotateDeg: false,
-            listDetailThird: false,
-            list: [
-              {name: 'apple'},
-              {name: 'mac'},
-              {name: 'iphone'}
-            ]
-          },
-          {
-            name: '关注我们',
-            rotateDeg: false,
-            listDetailThird: false,
-            list: [
-              {name: 'apple'},
-              {name: 'mac'},
-              {name: 'iphone'}
-            ]
-          },
-          {
-            name: '特色服务',
-            rotateDeg: false,
-            listDetailThird: false,
-            list: [
-              {name: 'apple'},
-              {name: 'mac'},
-              {name: 'iphone'}
-            ]
-          }
-        ]
+        // dataList: [
+        //   {
+        //     name: '帮助中心',
+        //     rotateDeg: false,
+        //     listDetailThird: false,
+        //     to:'product',
+        //     list: [
+        //       {name: 'apple'},
+        //       {name: 'mac'},
+        //       {name: 'iphone'}
+        //     ]
+        //   },
+        //   {
+        //     name: '服务支持',
+        //     rotateDeg: false,
+        //     listDetailThird: false,
+        //     list: [
+        //       {name: 'apple'},
+        //       {name: 'mac'},
+        //       {name: 'iphone'}
+        //     ]
+        //   },
+        //   {
+        //     name: '帮助中心',
+        //     rotateDeg: false,
+        //     listDetailThird: false,
+        //     list: [
+        //       {name: 'apple'},
+        //       {name: 'mac'},
+        //       {name: 'iphone'}
+        //     ]
+        //   },
+        //   {
+        //     name: '关于我们',
+        //     rotateDeg: false,
+        //     listDetailThird: false,
+        //     list: [
+        //       {name: 'apple'},
+        //       {name: 'mac'},
+        //       {name: 'iphone'}
+        //     ]
+        //   },
+        //   {
+        //     name: '关注我们',
+        //     rotateDeg: false,
+        //     listDetailThird: false,
+        //     list: [
+        //       {name: 'apple'},
+        //       {name: 'mac'},
+        //       {name: 'iphone'}
+        //     ]
+        //   },
+        //   {
+        //     name: '特色服务',
+        //     rotateDeg: false,
+        //     listDetailThird: false,
+        //     list: [
+        //       {name: 'apple'},
+        //       {name: 'mac'},
+        //       {name: 'iphone'}
+        //     ]
+        //   }
+        // ]
       }
-    },
-    computed:{
-      // ...mapGetters(['bottomdataList'])
     },
     methods: {
+      // ...mapActions('bottom',{
+      //   getBottomList: 'getBottomList'
+      // })
       showRotateDeg: function (index) {
-        this.dataList[index].rotateDeg = !this.dataList[index].rotateDeg
-        this.dataList[index].listDetailThird = !this.dataList[index].listDetailThird
+        this.showList(index)
       },
-      goOther:(param) => {
-        alert(param)
-        this.$router.push('/'+param)
-      }
+      ...mapActions('bottom', ['getBottomList']),
+      ...mapMutations('bottom', ['showList'])
     },
+    computed: {
+      ...mapGetters('bottom', {
+        dataList: 'bottomdataList'
+      })
+
+      // ...mapGetters(['bottom/bottomdataList'])
+    },
+    // methods: {
+    //   showRotateDeg: function (index) {
+    //     this.dataList[index].rotateDeg = !this.dataList[index].rotateDeg
+    //     this.dataList[index].listDetailThird = !this.dataList[index].listDetailThird
+    //   },
+    //   goOther: (param) => {
+    //     alert(param)
+    //     this.$router.push('/' + param)
+    //   }
+    // },
     beforeCreate: function () {
       console.log('beforeCreate' + '-bottomList')
     },
@@ -109,6 +124,7 @@
     },
     mounted: function () {
       console.log('mounted' + '-bottomList')
+      this.getBottomList()
     },
     beforeUpdate: function () {
       console.log('beforeUpdate' + '-bottomList')
@@ -181,9 +197,10 @@
   .listDetail {
     padding: 7px 10px;
   }
+
   .listDetailSec {
     padding: 5px 16px;
-    visibility: hidden;
+    /*visibility: hidden;*/
     opacity: 0;
     height: 0px;
     transition: all 286ms;
@@ -191,9 +208,10 @@
     -webkit-transition: all 286ms; /* Safari 和 Chrome */
     -o-transition: all 286ms;
   }
+
   .listDetailThird {
     height: 80px;
-    visibility: visible;
+    /*visibility: visible;*/
     opacity: 1;
   }
 </style>

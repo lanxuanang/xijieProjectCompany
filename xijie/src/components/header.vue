@@ -20,7 +20,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import {mapState, mapGetters,mapMutations,mapActions} from 'vuex'
+  import {mapState, mapGetters, mapMutations, mapActions} from 'vuex'
 
   export default {
     name: 'xijieHeader',
@@ -44,14 +44,23 @@
         // this.showCompanyList = !this.showCompanyList
         this.showCompanyListdd()
       },
-      showDesignDetail: function () {
+      showDesignDetail: function (designId) {
         // this.showCompanyList = false
-        // this.$router.push({path: 'product', query: {id: designId}})
-        this.$store.commit('showCompanyListdd')
+        this.$router.push({path: 'product', query: {id: designId}})
+        this.showCompanyListdd()
+        // this.$store.commit('showCompanyListdd')
       },
-      ...mapMutations(['showCompanyListdd']),
-      ...mapActions(['getHeaderList'])
-
+      // ...mapMutations(['header/showCompanyListdd']),
+      // ...mapActions(['header/getHeaderList'])
+      ...mapMutations(
+        // {
+        //   showCompanyListdd: 'header/showCompanyListdd'
+        // }
+        'header',['showCompanyListdd']
+      ),
+      ...mapActions({
+        getHeaderList: 'header/getHeaderList'
+      })
     },
     // computed: {
     //   design: function () {
@@ -71,12 +80,13 @@
     //   ])
     // } ,
     computed: {
-      ...mapGetters(
-        ['designStylesSecdd']
+      ...mapGetters({
+          designStylesSecdd: 'header/designStylesSecdd'
+        }
       ),
-      ...mapState(
-        ['showCompanyList']
-      )
+      // ...mapState(
+      //   ['showCompanyList']
+      // )
       // showCompanyList:function(){
       //   return this.$store.state.showCompanyList
       // }
@@ -88,6 +98,16 @@
       //     return this.$store.showCompanyList
       //   }
       // }
+      // ...mapState({
+      //     showCompanyList: function (state) {
+      //       return state.header.showCompanyList
+      //     }
+      //   }
+      // )
+      ...mapState('header',{
+        showCompanyList: 'showCompanyList'
+      })
+
     },
     // mapGetters(['designStylesSec']),
     beforeCreate: function () {

@@ -5,7 +5,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 const state = {
-  showCompanyList: true,
+  showCompanyList: false,
   designStyles: ''
 }
 // export default new Vuex.Store({
@@ -15,6 +15,7 @@ const state = {
 //   actions:actions
 // })
 export default {
+  namespaced:true,
   state:state,
   getters:getters,
   mutations:mutations,
